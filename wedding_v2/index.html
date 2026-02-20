@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Garik & Lusine Wedding">
+    <meta property="og:description" content="Join us on June 07, 2026">
+    <meta property="og:image" content="https://gariklusinewedding.netlify.app/preview-white.jpg">
+    <meta property="og:url" content="https://gariklusinewedding.netlify.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <title>Garik & Lusine Wedding</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            /* регулируй 0.3–0.5 */
+        }
+
+        .hero>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 8vw, 4rem);
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+        }
+
+        .count-item {
+            display: flex;
+            flex-direction: column;
+            min-width: 60px;
+        }
+
+        .count-item span:first-child {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+
+        .count-item span:last-child {
+            font-size: .7rem;
+            text-transform: uppercase;
+            opacity: .8;
+        }
+
+        .program-section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            background: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+        }
+
+        .event-card {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .event-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+
+        .icon {
+            width: 80px;
+            margin-bottom: 25px;
+            filter: grayscale(1);
+            opacity: .8;
+        }
+
+        .event-type {
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .time {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .location-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .address {
+            font-size: .95rem;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .btn-map {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: .85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: .3s;
+        }
+
+        .btn-map:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .lang-switch button {
+            padding: 8px 12px;
+            margin-left: 5px;
+            border: none;
+            cursor: pointer;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ✅ ADDED: background music (put music.mp3 in same folder as index.html) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <!-- ✅ END ADDED -->
+
+    <div class="lang-switch">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('am')">AM</button>
+    </div>
+
+    <section class="hero">
+        <h1 id="names">Garik & Lusine</h1>
+        <p id="date">June 07, 2026</p>
+
+        <div class="countdown">
+            <div class="count-item"><span id="days">00</span><span id="t_days">Days</span></div>
+            <div class="count-item"><span id="hours">00</span><span id="t_hours">Hours</span></div>
+            <div class="count-item"><span id="minutes">00</span><span id="t_minutes">Minutes</span></div>
+            <div class="count-item"><span id="seconds">00</span><span id="t_seconds">Seconds</span></div>
+        </div>
+    </section>
+
+    <div class="program-section">
+
+        <div class="event-card">
+            <h2 id="prog1">PROGRAM<br>OF THE DAY</h2>
+            <img class="icon" src="https://static.thenounproject.com/png/196144-512.png">
+            <p class="event-type" id="ceremony">Wedding Ceremony</p>
+            <p class="time">15:00</p>
+            <p class="location-name" id="church">St. Astvatsatsin Church</p>
+            <p class="address" id="addr1">Armenak Armenakyan St.</p>
+            <a href="https://yandex.com/maps/org/15438436392/?ll=44.545768%2C40.181836&z=14.65" target="_blank"
+                class="btn-map" id="map1">How to get there</a>
+        </div>
+
+        <div class="event-card">
+            <h2 id="prog2">PROGRAM<br>OF THE DAY</h2>
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/512/4544/4544802.png">
+            <p class="event-type" id="party">Wedding Reception</p>
+            <p class="time">17:30</p>
+            <p class="location-name" id="rest">Continental</p>
+            <p class="address" id="addr2">Armenia, Ararat Marz, Ayntap village, Yerevan-Meghri Highway, 1 Building</p>
+            <a href="https://yandex.com/maps/?text=Continental+Restaurant+Paronyan+Yerevan" target="_blank"
+                class="btn-map" id="map2">How to get there</a>
+        </div>
+
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                names: "Garik & Lusine",
+                date: "June 07, 2026",
+                days: "Days", hours: "Hours", minutes: "Minutes", seconds: "Seconds",
+                prog: "PROGRAM<br>OF THE DAY",
+                ceremony: "Wedding Ceremony",
+                church: "St. Astvatsatsin Church",
+                addr1: "Armenak Armenakyan St.",
+                party: "Wedding Reception",
+                rest: "Continental",
+                addr2: "Armenia, Ararat Marz, Ayntap village, Yerevan-Meghri Highway, 1 Building",
+                map: "How to get there"
+            },
+            am: {
+                names: "ԳԱՐԻԿ & ԼՈՒՍԻՆԵ",
+                date: "07 Հունիս 2026",
+                days: "ՕՐ", hours: "ԺԱՄ", minutes: "ՐՈՊԵ", seconds: "ՎԱՅՐԿՅԱՆ",
+                prog: "ՕՐՎԱ<br>ԾՐԱԳԻՐ",
+                ceremony: "Պսակադրություն",
+                church: "Սուրբ Աստվածածին Եկեղեցի",
+                addr1: "Արմենակ Արմենակյան փողոց",
+                party: "Հարսանեկան Խնջույք",
+                rest: "Կոնտինենտալ",
+                addr2: "Հայաստան, Արարատի մարզ, Այնթափ գյուղ, Երևան–Մեղրի մայրուղի, շենք 1",
+                map: "Ինչպես հասնել"
+            }
+        };
+
+        function setLang(lang) {
+            const t = translations[lang];
+            document.getElementById("names").innerHTML = t.names;
+            document.getElementById("date").innerHTML = t.date;
+            document.getElementById("t_days").innerHTML = t.days;
+            document.getElementById("t_hours").innerHTML = t.hours;
+            document.getElementById("t_minutes").innerHTML = t.minutes;
+            document.getElementById("t_seconds").innerHTML = t.seconds;
+            document.getElementById("prog1").innerHTML = t.prog;
+            document.getElementById("prog2").innerHTML = t.prog;
+            document.getElementById("ceremony").innerHTML = t.ceremony;
+            document.getElementById("church").innerHTML = t.church;
+            document.getElementById("addr1").innerHTML = t.addr1;
+            document.getElementById("party").innerHTML = t.party;
+            document.getElementById("rest").innerHTML = t.rest;
+            document.getElementById("addr2").innerHTML = t.addr2;
+            document.getElementById("map1").innerHTML = t.map;
+            document.getElementById("map2").innerHTML = t.map;
+        }
+
+        const weddingDate = new Date("June 7, 2026 14:30:00").getTime();
+        setInterval(function () {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            document.getElementById("days").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerHTML = Math.floor((diff % (1000 * 60)) / 1000);
+        }, 1000);
+
+        /* ✅ ADDED: start music on first user interaction (browser rule) */
+        const music = document.getElementById("bg-music");
+
+        function startMusic() {
+            if (!music) return;
+            music.volume = 0.6;
+            music.play().catch(() => { });
+            document.removeEventListener("click", startMusic);
+            document.removeEventListener("touchstart", startMusic);
+        }
+
+        document.addEventListener("click", startMusic);
+        document.addEventListener("touchstart", startMusic);
+        /* ✅ END ADDED */
+    </script>
+
+</body>
+
+</html>
