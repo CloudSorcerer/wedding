@@ -53,7 +53,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.58);
             /* регулируй 0.3–0.5 */
         }
 
@@ -78,10 +78,10 @@
 
         .countdown {
             display: flex;
-            gap: 30px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            padding-top: 20px;
+            gap: 34px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(235, 235, 240, 0.45);
+            padding-top: 14px;
         }
 
         .count-item {
@@ -91,9 +91,11 @@
         }
 
         .count-item span:first-child {
-            font-size: 2.5rem;
+            font-size: 4rem;
             font-weight: 300;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            color: rgba(245, 245, 248, 0.98);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
         .count-item span {
@@ -101,9 +103,12 @@
         }
 
         .count-item span:last-child {
-            font-size: .7rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            opacity: .8;
+            opacity: 0.95;
+            letter-spacing: 1.5px;
+            color: rgba(220, 220, 225, 0.95);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
         }
 
         .program-section {
@@ -199,11 +204,33 @@
         }
 
         .count-text {
-            margin-top: 10px;
-            font-size: 1rem;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
             font-style: italic;
             letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(235, 235, 240, 0.95);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+        }
+
+        @media (max-width: 768px) {
+            .count-text {
+                font-size: 1.15rem;
+                margin-bottom: 8px;
+            }
+
+            .count-item span:first-child {
+                font-size: 2.8rem;
+            }
+
+            .count-item span:last-child {
+                font-size: 0.75rem;
+            }
+
+            .countdown {
+                gap: 18px;
+                padding-top: 12px;
+            }
         }
     </style>
 </head>
