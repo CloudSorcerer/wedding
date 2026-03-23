@@ -53,7 +53,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.55);
             /* регулируй 0.3–0.5 */
         }
 
@@ -94,6 +94,10 @@
             font-size: 2.5rem;
             font-weight: 300;
             margin-bottom: 5px;
+        }
+
+        .count-item span {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .count-item span:last-child {
@@ -194,6 +198,13 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
         }
 
+        .count-text {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.85);
+        }
     </style>
 </head>
 
@@ -213,6 +224,7 @@
     <section class="hero">
         <h1 id="names">Garik & Lusine</h1>
         <p id="date">June 07, 2026</p>
+        <p id="count-text" class="count-text">Time left</p>
 
         <div class="countdown">
             <div class="count-item"><span id="days">00</span><span id="t_days">Days</span></div>
@@ -261,7 +273,8 @@
                 party: "Wedding Reception",
                 rest: "Continental",
                 addr2: "Yerevan-Meghri Highway, 1 Building",
-                map: "How to get there"
+                map: "How to get there",
+                countText: "Time left"
             },
             am: {
                 names: "ԳԱՐԻԿ & ԼՈՒՍԻՆԵ",
@@ -274,7 +287,8 @@
                 party: "Հարսանեկան Խնջույք",
                 rest: "Կոնտինենտալ",
                 addr2: "Երևան–Մեղրի մայրուղի, շենք 1",
-                map: "Ինչպես հասնել"
+                map: "Ինչպես հասնել",
+                countText: "Մնացել է"
             }
         };
 
@@ -296,6 +310,7 @@
             document.getElementById("addr2").innerHTML = t.addr2;
             document.getElementById("map1").innerHTML = t.map;
             document.getElementById("map2").innerHTML = t.map;
+            document.getElementById("count-text").innerHTML = t.countText;
         }
 
         const weddingDate = new Date("June 7, 2026 14:30:00").getTime();
