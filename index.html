@@ -39,7 +39,7 @@
             height: 100vh;
             background-image: url("background.jpg");
             background-size: cover;
-            background-position: center;
+            background-position: center top;
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
@@ -48,6 +48,7 @@
             color: white;
             text-align: center;
             padding: 20px;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -55,11 +56,19 @@
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.58);
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
         }
 
         .hero>* {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-content {
@@ -323,6 +332,43 @@
             .count-item span:last-child {
                 font-size: 0.76rem;
                 letter-spacing: 1px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                background-image: none;
+            }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image:
+                    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                    url("background.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                filter: blur(18px);
+                transform: scale(1.08);
+                z-index: 0;
+            }
+
+            .hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url("background.jpg");
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+                z-index: 1;
+            }
+
+            .hero>* {
+                position: relative;
+                z-index: 2;
             }
         }
     </style>
